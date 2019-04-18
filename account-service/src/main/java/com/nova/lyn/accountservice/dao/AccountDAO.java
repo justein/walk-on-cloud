@@ -13,6 +13,11 @@ import org.springframework.stereotype.Component;
  */
 @Mapper
 public interface AccountDAO {
-
+    /**
+     * 更新账户余额
+     * @param userId
+     * @param money
+     * @return
+     */
     int updateAccount(@Param("userId")String userId, @Param("money")Integer money);
 }

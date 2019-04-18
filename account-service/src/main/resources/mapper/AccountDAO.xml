@@ -4,5 +4,7 @@
 
 <mapper namespace="com.nova.lyn.accountservice.dao.AccountDAO">
 
-    <update id="updateAccount"></update>
+    <update id="updateAccount" >
+        update account_tbl set money = money - #{money} where user_id = #{userId} and money > #{money}
+    </update>
 </mapper>
