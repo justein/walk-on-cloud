@@ -5,9 +5,7 @@ import com.nova.lyn.accountservice.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.server.ServerHttpResponse;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @ClassName AccountController
@@ -16,13 +14,14 @@ import org.springframework.web.bind.annotation.RestController;
  * @Date 2019/4/18 0018 上午 8:54
  * @Version 1.0
  */
-@RestController("/account")
+@RestController
+@RequestMapping("/account")
 public class AccountController {
 
     @Autowired
     private AccountService accountService;
 
-    @PostMapping("/updateAccount")
+    @RequestMapping(value = "/updateAccount",method = RequestMethod.POST)
     public ResponseEntity<?> updateAccount(@RequestBody AccountDTO accountDTO) {
 
         int updateRet = accountService.updateAccount(accountDTO.getUserId(), accountDTO.getMoney());
